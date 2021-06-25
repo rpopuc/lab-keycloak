@@ -3,7 +3,7 @@ version: '3'
 services:
     app:
         build: ./.docker/build/app/
-        container_name: keycloak
+        # container_name: keycloak
         environment:
             - KEYCLOAK_USER=admin
             - KEYCLOAK_PASSWORD=admin
@@ -12,7 +12,7 @@ services:
             - DB_DATABASE=keycloak
             - DB_PORT=3306
             - DB_USER=root
-            - DB_PASSWORD=root
+            - DB_PASSWORD=
         ports:
             - 8080:8080
         depends_on:
@@ -20,7 +20,7 @@ services:
 
     db:
         image: mysql:5.7
-        container_name: keycloak_mysql
+        # container_name: keycloak_mysql
         restart: always
         tty: true
         ports:
@@ -30,6 +30,5 @@ services:
         environment:
             - MYSQL_DATABASE=keycloak
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_ROOT_USER=root
 
 
